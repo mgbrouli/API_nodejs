@@ -3,12 +3,14 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 const app = express()
 const router = express.Router();
 
 //Conecta bando dados
-mongoose.connect('mongodb+srv://wtnbrouli:wq6meIYCO1B6uNGM@cluster0.57xwpba.mongodb.net/')
+mongoose.connect(process.env.DATABASE)
+
 
 //Carregar os models
 const Product = require('./models/produt');
